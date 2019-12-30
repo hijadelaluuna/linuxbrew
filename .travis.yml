@@ -1,0 +1,42 @@
+os: linux
+language:
+- minimal
+services:
+- docker
+
+jobs:
+  include:
+#  - name: "alpine:3.10"
+#    script:
+#    - docker build tests/alpine-3.10/Dockerfile
+#  - name: "alpine:3.11"
+#    script:
+#    - docker build tests/alpine-3.11/Dockerfile
+  - name: "centos:7"
+    script:
+    - docker build -t linuxbrew/centos:7 linuxbrew/centos-7
+    - docker build tests/centos-7
+  - name: "centos:8"
+    script:
+    - docker build -t linuxbrew/centos:8 linuxbrew/centos-8
+    - docker build tests/centos-8
+  - name: "debian:10"
+    script:
+    - docker build -t linuxbrew/debian:10 linuxbrew/debian-10
+    - docker build tests/debian-10
+  - name: "fedora:30"
+    script:
+    - docker build -t linuxbrew/fedora:30 linuxbrew/fedora-30
+    - docker build tests/fedora-30
+  - name: "fedora:31"
+    script:
+    - docker build -t linuxbrew/fedora:31 linuxbrew/fedora-31
+    - docker build tests/fedora-31
+  - name: "ubuntu:18.04"
+    script:
+    - docker build -t linuxbrew/ubuntu:18.04 linuxbrew/ubuntu-18.04
+    - docker build tests/ubuntu-18.04
+  - name: "ubuntu:19.04"
+    script:
+    - docker build -t linuxbrew/ubuntu:19.04 linuxbrew/ubuntu-19.04
+    - docker build tests/ubuntu-19.04
